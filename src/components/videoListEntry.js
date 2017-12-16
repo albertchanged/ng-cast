@@ -1,4 +1,4 @@
 angular.module('video-player')
-.component('videoListEntry', {
-  // TODO
-});
+  .component('videoListEntry', {
+    // TODO
+  });
