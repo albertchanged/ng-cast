@@ -1,4 +1,5 @@
 angular.module('video-player')
-.service('youTube', function(){
+.service('youTube', function() {
   // TODO
+  return window.exampleVideoData;
 });
