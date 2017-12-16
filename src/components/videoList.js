@@ -5,6 +5,7 @@ angular.module('video-player')
     videos: '<',
     video: '<',
     selectVideo: '<',
+    index: '='
   },
   
   templateUrl: '/src/templates/videoList.html'

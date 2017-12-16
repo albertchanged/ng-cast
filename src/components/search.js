@@ -1,18 +1,17 @@
 angular.module('video-player')
 .component('search', {
+	
+  bindings: {
+    search: '<'
+  },
 
-	bindings: {
-		searchYouTube: '<'
-	},
-
-	controller: function() {
-		this.newQuery = '';
-		this.onClick = () => {
-			this.searchYouTube(this.newQuery);
-			this.newQuery = '';
-		};
-	},
-
+  controller: function(youTube) {
+    this.newQuery = '';
+    this.onClick = () => {
+      youTube.searchYouTube(this.newQuery, this.search);
+      this.newQuery = '';
+    };
+  },
 
   templateUrl: '/src/templates/search.html'
   

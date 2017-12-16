@@ -3,7 +3,8 @@ angular.module('video-player')
   
   bindings: {
     video: '<',
-    selectVideo: '<'
+    selectVideo: '<',
+    index: '='
   },
 
   
