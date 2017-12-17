@@ -1,24 +1,26 @@
 angular.module('video-player')
   .component('search', {
     bindings: {
-      searchVideos: '<',
-      handleClick: '<',
-      input: '<',
-      results: '='
+      search: '<',
     },
-    controller: function(youTube) {
-      // this.input = '';
-      this.handleClick = () => {
-        this.searchVideos(youTube.getYouTube('hello'));
-        console.log(youTube.getYouTube('hello'));
+    controller: function(youTube) { 
+      // On Click Search
+      this.newQuery = '';
+      this.onClick = () => {
+        youTube.searchYouTube(this.newQuery, this.search);
+        this.newQuery = '';
       };
-      // console.log('Input is ', this.input);
-      this.results = youTube.getYouTube('pokemon');
-      // console.log(this.results);
-      // searchVideos(this.results);
-      // youTube.getYouTube(this.input);
-      // console.log(youTube);
+      // LiveSearch
+      this.liveSearch = _.throttle(function() {
+        youTube.searchYouTube(this.newQuery, this.search);
+      }, 500);    
     },
-    templateUrl: '/src/templates/search.html'
-
+    directive: function() {
+      return {
+        bindings: {
+          youTube: '<'
+        } 
+      };
+    },
+    templateUrl: '/src/templates/search.html'   
   });
